@@ -1,3 +1,3 @@
 # UIToolbox
 
-A description of this package.
+A toolbox for UIKit.
