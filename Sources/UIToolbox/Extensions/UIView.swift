@@ -9,6 +9,8 @@ import UIKit
 
 extension UIView {
 
+    // MARK: - Binding to Edges
+
     /// Sets the constraints of the current view to be bound to the edges of another view.
     ///
     /// - Parameter view: The view that the current view will be constrained to.
@@ -95,6 +97,23 @@ extension UIView {
             verticalInsets: verticalInsets,
             useSafeArea: useSafeArea
         )
+    }
+
+    // MARK: - Size Constraining
+
+    /// Sets the constraints of the current view to be of a specific height and width.
+    /// - Parameter width: The width of the view.
+    /// - Parameter height: The height of the view.
+    func constrainToSize(width: CGFloat, height: CGFloat) {
+        self.widthAnchor.constraint(equalTo: width).isActive = true
+        self.heightAnchor.constraint(equalTo: height).isActive = true
+    }
+
+    /// Sets the constraints of the current view to be of a specific height and width where the width and the
+    /// height are equal (i.e., a square).
+    /// - Parameter square: The width and height of the view.
+    func constrainToSize(square: CGFloat) {
+        self.constrainToSize(width: square, height: square)
     }
 
 }
