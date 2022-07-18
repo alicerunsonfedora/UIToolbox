@@ -105,8 +105,8 @@ extension UIView {
     /// - Parameter width: The width of the view.
     /// - Parameter height: The height of the view.
     func constrainToSize(width: CGFloat, height: CGFloat) {
-        self.widthAnchor.constraint(equalTo: width).isActive = true
-        self.heightAnchor.constraint(equalTo: height).isActive = true
+        self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
 
     /// Sets the constraints of the current view to be of a specific height and width where the width and the
