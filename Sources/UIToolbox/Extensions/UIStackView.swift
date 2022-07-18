@@ -1,6 +1,6 @@
 //
 //  UIStackView.swift
-//  
+//
 //
 //  Created by Marquis Kurt on 18/7/22.
 //
@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIStackView {
-
     /// Initializes a stack view with default settings.
     /// - Parameter axis: The axis in which the items will be stacked.
     /// - Parameter alignment: The alignment in which the items in the stack will be aligned. The default value
@@ -25,7 +24,6 @@ extension UIStackView {
         self.spacing = spacing
     }
 
-
     /// Adds a list of subviews to the stack and arranges it in the stack.
     ///
     /// - Important: The views in the array will be added in the order they appear in the array. To ensure that
@@ -37,5 +35,4 @@ extension UIStackView {
             self.addArrangedSubview(view)
         }
     }
-
 }

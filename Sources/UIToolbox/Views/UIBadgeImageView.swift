@@ -1,12 +1,11 @@
 //
 //  UIBadgeImageView.swift
-//  
+//
 //
 //  Created by Marquis Kurt on 18/7/22.
 //
 
 import UIKit
-
 
 /// A UIImageView that contains a child badge.
 ///
@@ -15,7 +14,6 @@ import UIKit
 /// constrained to the bottom right of the parent image view and is given a square size. The badge will
 /// typically be a system symbol provided by SF Symbols.
 class UIBadgeImageView: UIImageView {
-
     /// The child image view that represents the badge image.
     var badge: UIImageView
 
@@ -36,8 +34,8 @@ class UIBadgeImageView: UIImageView {
     /// - Parameter color: The color the badge image will be.
     convenience init(badgeSystemName: String, color: UIColor) {
         self.init(frame: .zero, badge: badgeSystemName, with: 24)
-        self.contentMode = .scaleAspectFit
-        self.badge.image = self.badge.image?.withTintColor(color, renderingMode: .alwaysOriginal)
+        contentMode = .scaleAspectFit
+        badge.image = badge.image?.withTintColor(color, renderingMode: .alwaysOriginal)
     }
 
     /// Initialize a ``UIBadgeImageView``.
@@ -48,26 +46,27 @@ class UIBadgeImageView: UIImageView {
     /// - Parameter systemName: The system name of an SF symbol to use as the badge image.
     /// - parameter badgeSize: The width and height of the badge.
     init(frame: CGRect, badge systemName: String, with badgeSize: CGFloat) {
-        self.badge = UIImageView(frame: .zero)
-        self.badge.translatesAutoresizingMaskIntoConstraints = false
+        badge = UIImageView(frame: .zero)
+        badge.translatesAutoresizingMaskIntoConstraints = false
         super.init(frame: frame)
-        self.addSubview(self.badge)
-        self.configureBadgeView(systemName: systemName, badgeSize: badgeSize)
+        addSubview(badge)
+        configureBadgeView(systemName: systemName, badgeSize: badgeSize)
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func configureBadgeView(systemName: String, badgeSize: CGFloat) {
-        self.badge.image = UIImage(systemName: systemName)
-        self.badge.backgroundColor = .systemBackground
-        self.badge.layer.cornerRadius = badgeSize / 2
-        self.badge.contentMode = .scaleAspectFit
-        self.badge.constrainToSize(square: badgeSize)
-        self.badge.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
-        self.badge.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8).isActive = true
-        self.bringSubviewToFront(self.badge)
+        badge.image = UIImage(systemName: systemName)
+        badge.backgroundColor = .systemBackground
+        badge.layer.cornerRadius = badgeSize / 2
+        badge.contentMode = .scaleAspectFit
+        badge.constrainToSize(square: badgeSize)
+        badge.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        badge.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        bringSubviewToFront(badge)
     }
 
     // MARK: - Class Methods
@@ -75,7 +74,6 @@ class UIBadgeImageView: UIImageView {
     /// Sets the color of the symbol in the badge to a specified color.
     /// - Parameter color: The UIColor to color the symbol with.
     func setBadgeColor(to color: UIColor) {
-        self.badge.image = self.badge.image?.withTintColor(color, renderingMode: .alwaysOriginal)
+        badge.image = badge.image?.withTintColor(color, renderingMode: .alwaysOriginal)
     }
-
 }
