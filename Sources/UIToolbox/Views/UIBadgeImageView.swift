@@ -29,6 +29,8 @@ class UIBadgeImageView: UIImageView {
         }
     }
 
+    // MARK: - Constructors
+
     /// Initializes a ``UIBadgeImageView`` with a default badge name and color.
     /// - Parameter badgeSystemName: The system name of an SF symbol to use as the badge image.
     /// - Parameter color: The color the badge image will be.
@@ -66,6 +68,14 @@ class UIBadgeImageView: UIImageView {
         self.badge.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
         self.badge.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8).isActive = true
         self.bringSubviewToFront(self.badge)
+    }
+
+    // MARK: - Class Methods
+
+    /// Sets the color of the symbol in the badge to a specified color.
+    /// - Parameter color: The UIColor to color the symbol with.
+    func setBadgeColor(to color: UIColor) {
+        self.badge.image = self.badge.image?.withTintColor(color, renderingMode: .alwaysOriginal)
     }
 
 }
