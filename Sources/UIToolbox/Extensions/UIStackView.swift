@@ -13,7 +13,7 @@ extension UIStackView {
     /// - Parameter alignment: The alignment in which the items in the stack will be aligned. The default value
     /// is center.
     /// - Parameter spacing: The number of pixels to add between each item in the stack. The default value is 0.
-    convenience init(
+    public convenience init(
         axis: NSLayoutConstraint.Axis,
         alignment: UIStackView.Alignment = .center,
         spacing: CGFloat = .zero
@@ -30,7 +30,7 @@ extension UIStackView {
     /// this method adds the views in the order you specify, sort or reorder your array to match.
     ///
     /// - Parameter views: The views to add to the stack view.
-    func addArrangedSubviews(_ views: [UIView]) {
+    public func addArrangedSubviews(_ views: [UIView]) {
         views.forEach { view in
             self.addArrangedSubview(view)
         }
